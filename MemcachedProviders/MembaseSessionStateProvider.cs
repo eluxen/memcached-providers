@@ -14,15 +14,19 @@ namespace Enyim.Caching.Web
 {
 	public class MembaseSessionStateProvider : SessionStateStoreProviderBase
 	{
-		private IMemcachedClient client;
+		protected IMemcachedClient client;
 
 		public override void Initialize(string name, System.Collections.Specialized.NameValueCollection config)
 		{
 			base.Initialize(name, config);
-			this.client = ProviderHelper.GetClient(name, config, () => (IMemcachedClientFactory)new MembaseClientFactory());
-
+      InitializeClient(name, config);
 			ProviderHelper.CheckForUnknownAttributes(config);
 		}
+
+    protected virtual void InitializeClient(string name, System.Collections.Specialized.NameValueCollection config)
+    {
+      this.client = ProviderHelper.GetClient(name, config, () => (IMemcachedClientFactory)new MembaseClientFactory());
+    }
 
 		public override SessionStateStoreData CreateNewStoreData(HttpContext context, int timeout)
 		{

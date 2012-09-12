@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\lib\EnyimMemcached\localbuild.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
@@ -46,6 +52,7 @@
     <Compile Include="IMemcachedClientFactory.cs" />
     <Compile Include="DefaultClientFactory.cs" />
     <Compile Include="MembaseClientFactory.cs" />
+    <Compile Include="MemcachedSessionStateProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProviderHelper.cs" />
     <Compile Include="MembaseSessionStateProvider.cs" />
