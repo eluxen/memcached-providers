@@ -37,6 +37,14 @@
     <AssemblyOriginatorKeyFile>..\lib\EnyimMemcached\localbuild.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Enyim.Caching, Version=2.11.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Membase.2.14\lib\net35\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="Membase, Version=2.14.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Membase.2.14\lib\net35\Membase.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -58,17 +66,11 @@
     <Compile Include="MembaseSessionStateProvider.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\lib\EnyimMemcached\Enyim.Caching\Enyim.Caching.csproj">
-      <Project>{D438C0B3-A168-40B8-BDDD-61F0939DFF35}</Project>
-      <Name>Enyim.Caching</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\lib\EnyimMemcached\Membase\Membase.csproj">
-      <Project>{708A2350-A26C-444D-B975-8164263951A7}</Project>
-      <Name>Membase</Name>
-    </ProjectReference>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <None Include="app.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
